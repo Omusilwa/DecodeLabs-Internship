@@ -16,7 +16,7 @@ The repository is organized around the following key files:
 **[Data_analytics_P2](./Data_analytics_P2.pdf)**
 - Provides the project requirements, business questions, and analytical tasks that define the scope and objectives of the EDA. It acts as the guiding framework for the analysis.
 
-**[eda_notebook](./eda_notebook.ipynd)**
+**[eda_notebook](./eda_notebook.ipynb)**
 - A Python notebook where the complete EDA process is documented. It includes data exploration, feature engineering, aggregation, statistical analysis, and visualization steps used to generate insights from the dataset.
 
 **[eda_with_excel](./eda_with_excel.xlsx)**
