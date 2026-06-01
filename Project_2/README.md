@@ -10,16 +10,16 @@ The analysis explores key performance indicators such as revenue, order volume, 
 
 The repository is organized around the following key files:
 
-**[Cleaned_Dataset](Cleaned_Dataset.xlsx/)**
-- Contains the cleaned and structured dataset prepared during a previous **[Project_1](Project_1/)** data cleaning and preparation process. This dataset serves as the primary data source for all exploratory analyses and visualizations.
+**[Cleaned_Dataset](./Cleaned_Dataset.xlsx)**
+- Contains the cleaned and structured dataset prepared during a previous **[Project_1](../Project_1)** data cleaning and preparation process. This dataset serves as the primary data source for all exploratory analyses and visualizations.
 
-**[Data_analytics_P2](Data_analytics_P2.pdf/)**
+**[Data_analytics_P2](./Data_analytics_P2.pdf)**
 - Provides the project requirements, business questions, and analytical tasks that define the scope and objectives of the EDA. It acts as the guiding framework for the analysis.
 
-**[eda_notebook](eda_notebook.ipynd/)**
+**[eda_notebook](./eda_notebook.ipynd)**
 - A Python notebook where the complete EDA process is documented. It includes data exploration, feature engineering, aggregation, statistical analysis, and visualization steps used to generate insights from the dataset.
 
-**[eda_with_excel](eda_with_excel.xlsx/)**
+**[eda_with_excel](./eda_with_excel.xlsx)**
 - An interactive Excel dashboard developed for business users and stakeholders. The dashboard presents key metrics and visual summaries in an accessible format, allowing users to explore sales performance and answer business questions without requiring programming knowledge.
 
 ## Key Outcomes
