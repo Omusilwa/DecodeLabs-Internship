@@ -292,7 +292,7 @@ The SQL analysis enables businesses to:
 ## Project Structure
 
 SQL-Analysis
-- [Data](./dataset_data_analytics.csv)
+- [Data](./Dataset_Data_Analytics.csv)
 - [SQL Analysis](./sql_script.sql)
 
 ---
