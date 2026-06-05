@@ -2,7 +2,7 @@
 
 ### **Project Overview:**
 
-**Project 1: Excel Dataset**, Data Cleaning focuses on cleaning and preparing a sales dataset using Python Pandas to ensure the data is accurate, consistent, and ready for Exploratory Data Analysis (EDA). The project demonstrates a structured data-cleaning workflow designed to identify and resolve common data quality issues that could negatively impact business insights and analytical outcomes.
+This project focuses on cleaning and preparing a sales dataset using Python Pandas to ensure the data is accurate, consistent, and ready for Exploratory Data Analysis (EDA). The project demonstrates a structured data-cleaning workflow designed to identify and resolve common data quality issues that could negatively impact business insights and analytical outcomes.
 
 ---
 
@@ -37,6 +37,7 @@ The repository includes:
 - [Original Excel dataset](./Dataset_Data_Analytics.xlsx)
 - [Python cleaning script](./data_cleaning.ipynb)
 - [Cleaned dataset output](./Cleaned_Dataset.xlsx)
+- [Data Cleaning Report](./Data_Cleaning_Project.pptx)
 - [Supporting project documentation](./DATA_ANALYTICS_p1.pdf) | [Script PDF](./data_cleaning.pdf)
 
 All files can be accessed directly within the repository for review and reference.
