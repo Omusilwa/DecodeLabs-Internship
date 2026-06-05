@@ -2,22 +2,40 @@ SELECT *
 FROM dataset_data_analytics;
 
 -- 1. KEY PERFORMANCE INDICATOR
--- Total Revenue
-SELECT	ROUND(SUM(TotalPrice),2) AS SumRevenue
+-- Gross Revenue
+SELECT	ROUND(SUM(TotalPrice),2) AS GrossRevenue
+FROM dataset_data_analytics;
+
+-- Net Revenue
+SELECT	ROUND(SUM(TotalPrice),2) AS NetRevenue
 FROM dataset_data_analytics
 WHERE OrderStatus IN ("Shipped","Delivered");
 
+-- Revenue At Risk
+SELECT	ROUND(SUM(TotalPrice),2) AS NetRevenue
+FROM dataset_data_analytics
+WHERE OrderStatus IN ("Cancelled","Returned", "Pending");
+
 -- Order Volume
-SELECT	DISTINCT(COUNT(OrderID)) AS NumOrders
+SELECT	DISTINCT(COUNT(OrderID)) AS GrossOrderNum
 FROM dataset_data_analytics;
 
--- Order Value
-WITH ov  AS (SELECT 	
-				DISTINCT(COUNT(OrderID)) AS NumOrders,
-				ROUND(SUM(TotalPrice),2) AS SumRevenue
+-- Gross Order Value
+WITH gross_ov  AS (SELECT 	
+				COUNT(DISTINCT(OrderID)) AS NumOrders,
+				ROUND(SUM(TotalPrice),2) AS GrossRevenue
 			FROM dataset_data_analytics)
-SELECT ROUND((SumRevenue/NumOrders),2) AS OrderValue
-FROM ov;
+SELECT ROUND((GrossRevenue/NumOrders),2) AS OrderValue
+FROM gross_ov;
+
+-- Net Order Value
+WITH net_ov  AS (SELECT 	
+				COUNT(DISTINCT(OrderID)) AS NumOrders,
+				ROUND(SUM(TotalPrice),2) AS GrossRevenue
+			FROM dataset_data_analytics
+            WHERE OrderStatus IN ("Shipped","Delivered"))
+SELECT ROUND((GrossRevenue/NumOrders),2) AS OrderValue
+FROM net_ov;
 
 -- Purchase Rate
 WITH pr AS (SELECT 	
@@ -30,10 +48,11 @@ FROM pr;
 -- 2. REVENUE OVER TIME
 -- Revenue by Month
 SELECT 	MONTHNAME(Date) AS MonthOfSales,
-		ROUND(SUM(TotalPrice),2) As SumRevenue
+		ROUND(SUM(TotalPrice),2) As GrossRevenue,
+        ROUND(SUM((CASE WHEN OrderStatus IN ("Shipped","Delivered") THEN TotalPrice END)),2) AS NetRevenue,
+        ROUND(SUM((CASE WHEN OrderStatus IN ("Cancelled","Returned", "Pending") THEN TotalPrice END )),2) AS RevenueAtRisk
 FROM dataset_data_analytics
-GROUP BY MONTHNAME(Date)
-ORDER BY SumRevenue DESC;
+GROUP BY MONTHNAME(Date);
 
 -- Weekly Order Performance
 SELECT 	DAYNAME(Date) AS WeekDays,
@@ -44,19 +63,23 @@ GROUP BY WeekDays;
 -- DRIVER OF PERFORMANCE
 -- 1. Revenue by Location (Top 10 Contributors)
 SELECT 	ShippingAddress,
-		ROUND(SUM(TotalPrice),2) AS TotalRevenue
+		ROUND(SUM(TotalPrice),2) As GrossRevenue,
+        ROUND(SUM((CASE WHEN OrderStatus IN ("Shipped","Delivered") THEN TotalPrice END)),2) AS NetRevenue,
+        ROUND(SUM((CASE WHEN OrderStatus IN ("Cancelled","Returned", "Pending") THEN TotalPrice END )),2) AS RevenueAtRisk
 FROM dataset_data_analytics
 GROUP BY ShippingAddress
-ORDER BY TotalRevenue DESC
+ORDER BY RevenueAtRisk DESC
 LIMIT 10;
 
 -- 2. Products Driving Most Orders and Revenue
 SELECT 	Product,
 		COUNT(DISTINCT(OrderID)) As NumOrders,
-		ROUND(SUM(TotalPrice),2) AS TotalRevenue
+		ROUND(SUM(TotalPrice),2) As GrossRevenue,
+        ROUND(SUM((CASE WHEN OrderStatus IN ("Shipped","Delivered") THEN TotalPrice END)),2) AS NetRevenue,
+        ROUND(SUM((CASE WHEN OrderStatus IN ("Cancelled","Returned", "Pending") THEN TotalPrice END )),2) AS RevenueAtRisk
 FROM dataset_data_analytics
 GROUP BY Product
-ORDER BY TotalRevenue DESC;
+ORDER BY NetRevenue DESC;
 
 -- CUSTOMER BEHAVIOUR
 -- 1. Customer Traffic
