@@ -1,4 +1,4 @@
-# DecodeLabs-Internship
+# Data Cleaning and Preparation
 
 ### **Project Overview:**
 
