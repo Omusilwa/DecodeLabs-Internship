@@ -34,9 +34,9 @@ The cleaning process improved data reliability and enabled:
 
 The repository includes:
 
-- Original Excel dataset: [Dataset](./Dataset_Data_Analytics.xlsx)
-- Python cleaning script: [Data Cleaning Notebook](./data_cleaning.ipynb)
-- Cleaned dataset output: [Cleaned Dataset](./Cleaned_Dataset.xlsx)
-- Supporting project documentation: [Project Guide](./DATA_ANALYTICS_p1.pdf) | [Script PDF](./data_cleaning.pdf)
+- [Original Excel dataset](./Dataset_Data_Analytics.xlsx)
+- [Python cleaning script](./data_cleaning.ipynb)
+- [Cleaned dataset output](./Cleaned_Dataset.xlsx)
+- [Supporting project documentation](./DATA_ANALYTICS_p1.pdf) | [Script PDF](./data_cleaning.pdf)
 
 All files can be accessed directly within the repository for review and reference.
