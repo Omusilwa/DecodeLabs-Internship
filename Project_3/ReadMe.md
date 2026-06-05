@@ -95,9 +95,9 @@ Core business metrics were calculated directly in SQL.
 
 | KPI                 | Business Purpose                              |
 | ------------------- | --------------------------------------------- |
-| Total Revenue       | Measures overall sales performance            |
+| Gross Revenue      | Measures overall sales performance            |
 | Order Volume        | Measures transaction activity                 |
-| Average Order Value | Measures customer spending efficiency         |
+| Gross Average Order Value| Measures customer spending efficiency         |
 | Purchase Rate       | Measures cart-to-purchase conversion behavior |
 
 #### Analytical Skills Demonstrated
