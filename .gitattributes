@@ -1,1 +1,7 @@
 *xlsx filter=lfs diff=lfs merge=lfs -text
+*.xlsx filter=lfs diff=lfs merge=lfs -text
+*.xlsx,*.csv,*.pdf filter=lfs diff=lfs merge=lfs -text
+*.xlsx,*.pptx,*.pdf filter=lfs diff=lfs merge=lfs -text
+*.pdf,*.pptx filter=lfs diff=lfs merge=lfs -text
+*.pdf,*.xlxs,*.pptx filter=lfs diff=lfs merge=lfs -text
+*.pdf,*.pptx,*.xlsx filter=lfs diff=lfs merge=lfs -text
